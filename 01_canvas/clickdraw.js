@@ -19,7 +19,7 @@ toggleButton.addEventListener('click', function() {
 });
 
 c.addEventListener('click', function(e) {
-  // prevent the default action
+  // prevent the default action of clicking on canvas
   e.preventDefault();
   if(isRectangle) {
     console.log("Rectangle");
