@@ -1,3 +1,8 @@
+// Tina Wong
+// SoftDev2 pd7
+// K03 -- They lock us in the tower whenever we get caught ...which is often
+// 2019-02-04
+
 var c = document.getElementById("playground");
 var width = c.getAttribute("width");
 var height = c.getAttribute("height");
