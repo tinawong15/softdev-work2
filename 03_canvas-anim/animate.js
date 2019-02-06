@@ -42,4 +42,7 @@ var drawDot = function() {
   ctx.fill();
   requestID = window.requestAnimationFrame(drawDot);
 };
-circle.addEventListener('click', drawDot);
+circle.addEventListener('click', function(e) {
+  window.cancelAnimationFrame(requestID);
+  drawDot();
+});
