@@ -1,5 +1,12 @@
+'''
+Blinking Retina -- Tina Wong - Jason Lin
+SoftDev2 pd7
+K06 -- Yummy Mongo Py
+2019-02-28
+'''
 import pymongo
-SERVER_ADDR = "142.93.6.251"
+SERVER_ADDR = "142.93.6.251" # Tina's droplet
+#SERVER_ADDR = "142.93.57.60" # Jason's droplet
 connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.test
 collection = db.restaurants
