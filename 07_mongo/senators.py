@@ -8,24 +8,31 @@ GovTrack's API on Current US Senators
 This JSON file contains information about each current senator, including their name, state, party, contact information, social media links, and rank.
 Raw Data Link: https://www.govtrack.us/api/v2/role?current=true&role_type=senator
 Import Mechanism:
-    Remove ' {
+    Call the function import_json(). This will read the json file and insert the objects into the database,
+    which removes the meta information:
          "meta": {
           "limit": 100,
           "offset": 0,
           "total_count": 100
-         },
-         "objects": '
-         from the beginning of the JSON file and
-         the ending brace '}' from the end of the JSON file.
-    When importing the JSON file into your MongoDB server, use the following command:
-        mongoimport --db DATABASE_NAME --collection COLLECTION_NAME --drop --jsonArray --file DIRECTORY_NAME/senators.json
+         }
+    After everything is successfully imported, comment out the import_json() function so it is only imported once.
 '''
 
 import pymongo
+import json
+
 SERVER_ADDR = "142.93.6.251" # Tina's droplet
 connection = pymongo.MongoClient(SERVER_ADDR)
 db = connection.friends
 collection = db.senators
+
+def import_json():
+    f = open("senators.json","r")
+    data = json.loads(f.read())
+    f.close()
+
+    collection.insert_many(data["objects"])
+# import_json()
 
 def search_current_members():
     senators = db.senators.find({"current": bool('true')})
