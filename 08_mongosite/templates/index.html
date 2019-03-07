@@ -2,8 +2,29 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>Pokemon Search</title>
   </head>
   <body>
+    <p> You must enter an IP Address that currently has a MongoDB server on to access results from the PokeDex. </p>
+    <form action="/auth" method="POST">
+      IP Address: <input type="text" name="ip_address">
+      <br>
+      <br>
+      <p> Search Queries </p> 
+      Pokemon: <input type="text" name="pokemon">
+      <br>
+      ID: <input type="number" name="id">
+      <br>
+      Type: <input type="text" name="type">
+      <br>
+      Weaknesses: <input type="text" name="weaknesses">
+      <br>
+      Height: <input type="number" name="height">
+      <br>
+      Weight: <input type="number" name="weight">
+      <br>
+      <input type="submit" name="submit">
+      <br>
+    </form>
   </body>
 </html>
