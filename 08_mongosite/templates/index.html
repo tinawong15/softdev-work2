@@ -1,30 +1,46 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>Pokemon Search</title>
-  </head>
-  <body>
+</head>
+<body>
     <p> You must enter an IP Address that currently has a MongoDB server on to access results from the PokeDex. </p>
-    <form action="/auth" method="POST">
-      IP Address: <input type="text" name="ip_address">
-      <br>
-      <br>
-      <p> Search Queries </p> 
-      Pokemon: <input type="text" name="pokemon">
-      <br>
-      ID: <input type="number" name="id">
-      <br>
-      Type: <input type="text" name="type">
-      <br>
-      Weaknesses: <input type="text" name="weaknesses">
-      <br>
-      Height: <input type="number" name="height">
-      <br>
-      Weight: <input type="number" name="weight">
-      <br>
-      <input type="submit" name="submit">
-      <br>
+    <p>You are currently connected to <b>{{addr}}</b> </p>
+    <form action="/" method="POST">
+        IP Address: <input type="text" name="ip_address">
+        <input type="submit" name="submit" value="Connect to new IP">
     </form>
-  </body>
+    <h2>Search Queries</h2>
+    <form action="/" method="GET">
+        Type (Ex. "Water","fire","gRoUnD"): <input type="text" name="type">
+        <br>
+        <input type="submit" name="submit" value="Search Based on Type">
+    </form>
+    <br>
+    <form action="/" method="GET">
+        Weaknesses (Ex. "Water","fire","gRoUnD"): <input type="text" name="weaknesses">
+        <br>
+        <input type="submit" name="submit" value="Search Based on Weakness">
+    </form>
+    <br>
+    <form action="/" method="GET">
+        Height (will search in a range +/- 1 meter): <input type="number" name="height">
+        <br>
+        <input type="submit" name="submit" value="Search Based on Height">
+    </form>
+    <br>
+    <form action="/" method="GET">
+        Weight (will search in a range +/- 1 kilogram): <input type="number" name="weight">
+        <br>
+        <input type="submit" name="submit" value="Search Based on Weight">
+    </form>
+    {% if display %}
+    <h3>Results {{search}}</h3>
+        {% for pokemon in result %}
+            <p>{{pokemon}}</p>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</body>
 </html>
