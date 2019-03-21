@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v5.min.js" charset="utf-8"></script>
+
+    <script>
+      var selection = d3.select("body");
+      d3.selectAll("h2");
+      d3.selectAll("tr").selectAll("td");
+      d3.selectAll("tr").selectAll("td").selectAll("span");
+      d3.selectAll("section");
+      d3.selectAll("section").append("p");
+      d3.selectAll("section").select("aside");
+      d3.select("body").datum(42);
+      d3.select("body").datum(42).append("h1");
+      var numbers = [4, 5, 18, 23, 42];
+
+      var letters = [
+        {name: "A", frequency: .08167},
+        {name: "B", frequency: .01492},
+        {name: "C", frequency: .02780},
+        {name: "D", frequency: .04253},
+        {name: "E", frequency: .12702}
+      ];
+
+      function name(d) {
+        return d.name;
+      }
+      d3.selectAll("div").data(letters, name);
+      var div = d3.selectAll("div").data(vowels, name);
+      div.exit();
+      div.enter();
+    </script>
+    <title></title>
+  </head>
+  <body>
+    <h1></h1>
+    <h2></h2>
+    <section></section>
+    <section></section>
+    <section></section>
+    <section></section>
+    <p></p>
+    <div></div>
+  </body>
+</html>
