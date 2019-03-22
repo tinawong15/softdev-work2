@@ -12,12 +12,12 @@ var width = 420,
     height = 100;
 
 var x = d3.scaleLinear()
-    .domain([d3.min(values) - 1, d3.max(values) + 1])
-    .range([0, width]);
+    .domain([1, 6])
+    .range([20, width]);
 
 var y = d3.scaleLinear()
-    .domain([d3.min(values) - 1, d3.max(values) + 1])
-    .range([0, height]);
+    .domain([30, 50])
+    .range([5, height]);
 
 var chart = d3.select(".chart")
     .attr("width", width)
