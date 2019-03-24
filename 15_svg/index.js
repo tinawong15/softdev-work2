@@ -18,12 +18,12 @@ while (i < tasks.length){
 
 
 var x_scale = d3.scaleLinear()
-    .domain([d3.min(tasks),d3.max(tasks)])
+    .domain([d3.min(tasks) - 1, 6])
     .range([0, width]);
 
 var y_scale = d3.scaleLinear()
     .domain([d3.min(values),d3.max(values)])
-    .range([0, height]);
+    .range([height, 0]);
 
 var x_axis = d3.axisBottom()
     .scale(x_scale)
