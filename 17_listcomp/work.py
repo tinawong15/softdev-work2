@@ -72,5 +72,17 @@ def divisors_num2(num):
 
 #7 Transpose a matrix
 # loopy way
+def transpose_matrix(matrix):
+    new_matrix = []
+    for i in range(len(matrix[0])):
+        row = []
+        for j in range(len(matrix)):
+            row.append(matrix[j][i])
+        new_matrix.append(row)
+    return new_matrix
+print(transpose_matrix([[1,2,3],[4,5,6],[7,8,9]]))
 
 # listcompy way
+def transpose_matrix2(matrix):
+    return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0])) ]
+print(transpose_matrix2([[1,2,3],[4,5,6],[7,8,9]]))
