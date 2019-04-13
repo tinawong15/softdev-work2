@@ -70,4 +70,7 @@ def divisors_num2(num):
     return divisor
 # print(divisors_num2(12))
 
-#7
+#7 Transpose a matrix
+# loopy way
+
+# listcompy way
