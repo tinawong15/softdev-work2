@@ -23,8 +23,17 @@ seven2 = [i * 10 + 7 for i in range(5)]
 
 #3 [0, 0, 0, 0, 1, 2, 0, 2, 4]
 # loopy way
+twelve = []
+for i in range(25):
+    if i % 12 == 0:
+        twelve.append(i // 100)
+        twelve.append(i // 10)
+        twelve.append(i % 10)
+# print(twelve)
 
 # listcompy way
+twelve2 = [j for l in [[i // 100, i // 10, i % 10] for i in range(25) if i % 12 == 0] for j in l]
+# print(twelve2)
 
 #4 Composites on range [0, 100], in ascending order
 # loopy way
@@ -37,22 +46,20 @@ for i in range(1,101):
 # print(composite)
 
 # listcompy way
-composite2 = [i for x in range(2,i + 1) for i in range(1,101) if i % x == 0 and i != x]
+composite2 = list(set([i for x in range(2,i + 1) for i in range(1,101) if i % x == 0 and i != x]))
 # print(composite2)
 
 #5 Primes on range [0,100], in ascending order
 # loopy way
 prime = []
 for i in range(101):
-    for x in range(2,i):
-        if i % x == 0 and i != x:
-            break
-        if i == x:
-            prime.append(i)
+    if i not in composite and i > 1:
+        prime.append(i)
 # print(prime)
 
 # listcompy way
-prime2 = []
+prime2 = [i for i in range(101) if i not in composite2 and i > 1]
+# print(prime2)
 
 #6 All divisors of a number, listed in ascending order
 # loopy way
@@ -80,9 +87,9 @@ def transpose_matrix(matrix):
             row.append(matrix[j][i])
         new_matrix.append(row)
     return new_matrix
-print(transpose_matrix([[1,2,3],[4,5,6],[7,8,9]]))
+# print(transpose_matrix([[1,2,3],[4,5,6],[7,8,9]]))
 
 # listcompy way
 def transpose_matrix2(matrix):
     return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0])) ]
-print(transpose_matrix2([[1,2,3],[4,5,6],[7,8,9]]))
+# print(transpose_matrix2([[1,2,3],[4,5,6],[7,8,9]]))
