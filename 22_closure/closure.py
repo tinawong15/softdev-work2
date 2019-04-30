@@ -72,8 +72,10 @@ print(repeat('cool')(3)) #coolcoolcool
 
 def make_counter():
     x = 0
-    def inner():
+    def inner(access=False):
         nonlocal x
+        if access:
+            return x
         x += 1
         return x
     return inner
@@ -84,3 +86,5 @@ ctr2 = make_counter()
 print(ctr2()) #1
 print(ctr1()) #3
 print(ctr2()) #2
+print(ctr1(True))
+print(ctr2(True))
