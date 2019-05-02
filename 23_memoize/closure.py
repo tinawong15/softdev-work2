@@ -42,6 +42,7 @@ print(greet())
 def memoize():
     memo = {}
     def helper(x):
+        print(memo)
         if x in memo.keys():
             return memo[x]
         else:
@@ -60,3 +61,5 @@ def fib(n):
 # print(fib(20))
 test_fib = memoize()
 print(test_fib(20))
+print(test_fib(19))
+print(test_fib(21))
